@@ -15,13 +15,16 @@ namespace Grades
             book.AddGrade(78);
             book.AddGrade(99.444f);
             book.AddGrade(80);
+            book.WriteGradesForLoop(Console.Out);
+            book.WriteGradesForEachLoop(Console.Out);
+            book.WriteGradesWhileLoop(Console.Out);
             Statistics stats = book.ComputeStatistics();
             if (stats.GetActiveStats() == true)
             {
-                writeGrades("Highest Grade" , stats.GetHighestGrade()); 
-                writeGrades("Lowest Grade" ,  stats.GetLowestGrade());
-                writeGrades("Average Grade" , stats.GetAverGrade());
-                writeGrades(stats.Description, stats.LetterGrade);
+                writeResult("Highest Grade" , stats.GetHighestGrade()); 
+                writeResult("Lowest Grade" ,  stats.GetLowestGrade());
+                writeResult("Average Grade" , stats.GetAverGrade());
+                writeResult(stats.Description, stats.LetterGrade);
             }
             else
             {
@@ -29,12 +32,12 @@ namespace Grades
             }
         }   
 
-        static void writeGrades(string message, float gradeResult)
+        static void writeResult(string message, float gradeResult)
         {
                 Console.WriteLine($"{message}: {gradeResult:f2}", message, gradeResult);
         }
 
-          static void writeGrades(string message, string gradeResult)
+          static void writeResult(string message, string gradeResult)
         {
                 Console.WriteLine($"{message}: {gradeResult}", message, gradeResult);
         }

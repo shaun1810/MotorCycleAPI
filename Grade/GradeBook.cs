@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Grades
 {
@@ -32,6 +33,36 @@ namespace Grades
 
                }
        }
+
+        internal void WriteGradesWhileLoop(TextWriter destination)
+        {
+            int i = currentGrades.Count -1;
+            destination.WriteLine("while loop");
+            while(i>=0)
+            {
+                destination.WriteLine(currentGrades[i]);
+                i--;
+            }
+        }
+
+        internal void WriteGradesForEachLoop(TextWriter destination)
+        {
+            destination.WriteLine("for Ea loop");
+            foreach (float grade in currentGrades)
+            {
+                destination.WriteLine(grade);
+            } 
+        }
+
+        public void WriteGradesForLoop(TextWriter destination)
+        {
+            Console.WriteLine("for Loop");
+            for (int i=currentGrades.Count; i>0; i--)
+            {
+                destination.WriteLine(currentGrades[i-1]);
+            }
+        }
+
         public GradeBook()
         {
             currentGrades = new List<float>();
