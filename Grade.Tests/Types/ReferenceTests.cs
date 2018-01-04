@@ -50,9 +50,13 @@ public class TypeTests
     [TestMethod]
     public void GradeBookVariableholdRefernce()
     {
+  
         GradeBook grade1 = new GradeBook();
         GradeBook grade2 = grade1;
+        grade1.NameChange += OnNameChanged;
+        grade2.NameChange += OnNameChanged;
         grade1 = new GradeBook();
+        grade1.NameChange += OnNameChanged;
         grade1.Name = "Grade Book";
         Assert.AreNotEqual(grade1.Name, grade2.Name);
     }
@@ -84,6 +88,8 @@ public class TypeTests
     {
         GradeBook book1 = new GradeBook();
         GradeBook book2 = book1;
+        book1.NameChange += OnNameChanged;
+        book2.NameChange += OnNameChanged;
         GiveBookName(book2);
         Assert.AreEqual("Shaun's Book", book1.Name);
     }
@@ -91,6 +97,11 @@ public class TypeTests
     private void GiveBookName(GradeBook book)
     {
         book.Name = "Shaun's Book";
+    }
+
+    static void OnNameChanged(object sender, NameChangedEventArgs args)
+    {
+       Console.WriteLine($"Name of book changing from {args.CurrentName} to {args.NewName}");
     }
 
 }
