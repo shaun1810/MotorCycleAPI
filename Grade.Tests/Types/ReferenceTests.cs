@@ -1,4 +1,4 @@
-/*using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace Grades.Tests.Types
@@ -96,4 +96,3 @@ public class TypeTests
 }
 
 }
-*/
